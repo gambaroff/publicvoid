@@ -1,4 +1,0 @@
-publicvoid
-==========
-
-ruby
