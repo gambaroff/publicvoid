@@ -1,6 +1,12 @@
-<% provide(:title, 'Home') %>
-<h1>Public Void</h1>
-<p>
-  This is the home page for Public Void:
-  Friendly app for video friends and foes.
-</p>
+<div class="center hero-unit">
+  <h1>Welcome to Public Void</h1>
+
+  <h2>
+    This is the home page for Public Void:
+    Friendly app for video friends and foes.
+  </h2>
+
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+</div>
+
+<%= link_to image_tag("public_void.jpg", alt: "Free_storage_space")%>
