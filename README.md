@@ -1,3 +1,3 @@
-#Public_Void  is an applivations for video friends and foes.
+#Public_Void  is an applications for video friends and foes.
 
-This is an inception stage for Public Void application.
+This is an inception stage for Public Void application to free us from video clutter.
