@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :tranfers
+  has_many :transfers
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   validates :name, presence: true, length: { maximum: 50 }
