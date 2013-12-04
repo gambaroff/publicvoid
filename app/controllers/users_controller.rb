@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       redirect_to @user
-      flash[:success] = "Welcome to Public Void! You are so close to beeing video clutter free!"
+      flash[:success] = "Welcome to Public Void! ===> You are so close to beeing video clutter free!"
     else
       render 'new'
     end
