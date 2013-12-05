@@ -8,19 +8,16 @@ describe User do
   end
 
   subject { @user }
-
+  
+  it { should respond_to(:authenticate) }
   it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
-<<<<<<< HEAD
-  it { should respond_to(:admin) }
-  it { should respond_to(:transfers) }
-=======
   it { should respond_to(:remember_token) }
-  it { should respond_to(:authenticate) }
->>>>>>> a4e6f592a060357118d43db55de584c1cd4ca081
+  it { should respond_to(:transfers) }
+
 
   it { should be_valid }
 
@@ -114,5 +111,29 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+  
+  describe "transfer associations" do
+
+    before { @user.save }
+    let!(:older_transfer) do
+      FactoryGirl.create(:transfer, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_transfer) do
+      FactoryGirl.create(:transfer, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right transfers in the right order" do
+      expect(@user.transfers.to_a).to eq [newer_transfer, older_transfer]
+    end
+    
+    it "should destroy associated transfers" do
+      transfers = @user.transfers.to_a
+      @user.destroy
+      expect(transfers).not_to be_empty
+      transfers.each do |transfer|
+        expect(Transfer.where(id: transfer.id)).to be_empty
+      end
+    end
   end
 end
