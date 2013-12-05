@@ -59,8 +59,8 @@ describe "User pages" do
   end
   
   describe "transfers" do
-    it { should have_content(m1.content) }
-    it { should have_content(m2.content) }
+    it { should have_content(t1.content) }
+    it { should have_content(t2.content) }
     it { should have_content(user.transfers.count) }
   end
 

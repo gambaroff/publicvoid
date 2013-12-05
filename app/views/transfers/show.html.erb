@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<br />
+<%= image_tag(@transfer.transfered_file(:small), class: 'thumb')  %>
+<br />
+
+<%= link_to 'Edit', edit_transfer_path(@transfer) %> |
+<%= link_to 'Back', transfers_path %>

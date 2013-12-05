@@ -1,0 +1,1 @@
+json.extract! @transfer, :created_at, :updated_at

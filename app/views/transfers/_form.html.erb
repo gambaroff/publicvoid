@@ -1,0 +1,19 @@
+<%= form_for(@transfer, html: { multipart: true }) do |f| %>
+  <% if @transfer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transfer.errors.count, "error") %> prohibited this upload from being saved:</h2>
+
+      <ul>
+        <% @transfer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.label :transfered_file, t('.transfer_new_file') %>
+    <%= f.file_field :transfered_file, name: 'transfer[transfered_file]' %>
+    <%= f.submit %>
+  </div>
+<% end %>

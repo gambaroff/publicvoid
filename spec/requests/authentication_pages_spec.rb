@@ -18,6 +18,7 @@ describe "Authentication" do
         it { should_not have_selector('div.alert.alert-error') }
       end
     end
+    
     describe "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
       before { sign_in user }
@@ -77,6 +78,19 @@ describe "Authentication" do
         describe "visiting the user index" do
           before { visit users_path }
           it { should have_title('Sign in') }
+        end
+      end
+    
+      describe "in the Transfers controller" do
+
+        describe "submitting to the create action" do
+          before { post transfers_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete transfer_path(FactoryGirl.create(:transfer)) }
+          specify { expect(response).to redirect_to(signin_path) }
         end
       end
     end
