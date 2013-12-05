@@ -8,4 +8,13 @@
       </h1>
     </section>
   </aside>
+  <div class="span8">
+    <% if @user.transfers.any? %>
+      <h3>Transfers (<%= @user.transfers.count %>)</h3>
+      <ol class="transfers">
+        <%= render @transfers %>
+      </ol>
+      <%= will_paginate @transfers %>
+    <% end %>
+  </div>
 </div>

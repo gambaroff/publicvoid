@@ -18,4 +18,14 @@ describe Transfer do
     before { @transfer.user_id = nil }
     it { should_not be_valid }
   end
+  
+  describe "with blank content" do
+    before { @transfer.content = " " }
+    it { should_not be_valid }
+  end
+
+  describe "with content that is too long" do
+    before { @transfer.content = "a" * 141 }
+    it { should_not be_valid }
+  end
 end
