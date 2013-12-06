@@ -3,7 +3,7 @@
   <aside class="span4">
     <section>
       <h1>
-        <%= gravatar_for @user %>
+        <%= gravatar_for@user %>
         <%= @user.name %>
       </h1>
     </section>
@@ -13,6 +13,7 @@
       <h3>Transfers (<%= @user.transfers.count %>)</h3>
       <ol class="transfers">
         <%= render @transfers %>
+        <%= render 'transfers/show' %>
       </ol>
       <%= will_paginate @transfers %>
     <% end %>

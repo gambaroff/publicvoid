@@ -11,13 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131205045935) do
+ActiveRecord::Schema.define(version: 20131206013123) do
 
   create_table "transfers", force: true do |t|
     t.string   "content"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "transfered_file_file_name"
+    t.string   "transfered_file_content_type"
+    t.integer  "transfered_file_file_size"
+    t.datetime "transfered_file_updated_at"
   end
 
   add_index "transfers", ["user_id", "created_at"], name: "index_transfers_on_user_id_and_created_at"
