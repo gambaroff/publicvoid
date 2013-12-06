@@ -20,6 +20,16 @@ $grayMediumLight: #eaeaea;
   @include box_sizing;
 }
 
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+#notice {
+  color: green;
+}
+
 /* universal */
 
 html {
@@ -72,6 +82,11 @@ p {
   line-height: 1.7em;
 }
 
+ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
 
 /* header */
 
