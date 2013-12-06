@@ -1,5 +1,5 @@
 class TransfersController < ApplicationController
-  before_action :signed_in_user, :set_transfer, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, :set_transfer, only: [:show, :edit, :update, :destroy] 
 
 
   # GET /transfers
@@ -39,15 +39,14 @@ class TransfersController < ApplicationController
   # POST /transfers
   # POST /transfers.json
   def create
-   @transfer = Transfer.new(transfer_params)
-   if @transfer.save
+    @transfer = current_user.transfers.build(transfer_params)
+    if @transfer.save
       flash[:success] = "Transfer created!"
       redirect_to root_url
     else
       render 'static_pages/home'
     end
   end
-
 
   # DELETE /transfers/1
   # DELETE /transfers/1.json
@@ -60,13 +59,13 @@ class TransfersController < ApplicationController
   end
   
   private
-
     
     def set_transfer
       @transfer = Transfer.find(params[:id])
     end
 
+ 
     def transfer_params
-      params[:transfer].permit(:transferred_file)
+      params.require(:transfer).permit(:transfered_file )
     end
 end
