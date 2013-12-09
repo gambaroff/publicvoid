@@ -11,9 +11,9 @@ class TransfersController < ApplicationController
   def download
     @transfers = Transfer.find(params[:transfer_id])
 
-    send_file @transfer.transfered_file.path,
-              :filename => @transfer.transfered_file_file_name,
-              :type => @transfer.transfered_file_file_type,
+    send_file @transfer.transferred_file.path,
+              :filename => @transfer.transferred_file_file_name,
+              :type => @transfer.transferred_file_file_type,
               :disposition => 'attachment'
   end
   
@@ -70,9 +70,9 @@ class TransfersController < ApplicationController
   def download
     @transfer = Transfer.find(transfer_params)
 
-    send_file @transfer.transfered_file_file_name.path,
-              :filename => @transfer.transfered_file_file_name,
-              :type => @transfer.transfered_file_file_type,
+    send_file @transfer.transferred_file_file_name.path,
+              :filename => @transfer.transferred_file_file_name,
+              :type => @transfer.transferred_file_file_type,
               :disposition => 'attachment'
   end
   
@@ -84,6 +84,6 @@ class TransfersController < ApplicationController
 
  
     def transfer_params
-      params.require(:transfer).permit(:transfered_file )
+      params.require(:transfer).permit(:transferred_file )
     end
 end
