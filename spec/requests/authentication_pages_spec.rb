@@ -83,11 +83,6 @@ describe "Authentication" do
     
       describe "in the Transfers controller" do
 
-        describe "submitting to the create action" do
-          before { post transfers_path }
-          specify { expect(response).to redirect_to(signin_path) }
-        end
-
         describe "submitting to the destroy action" do
           before { delete transfer_path(FactoryGirl.create(:transfer)) }
           specify { expect(response).to redirect_to(signin_path) }

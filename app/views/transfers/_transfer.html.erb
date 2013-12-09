@@ -7,7 +7,7 @@
         <% @transfer.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
           <li>
-          <span class="content"><%= transfer.content %></span>
+          <span class="content"><%= transfer.transfered_file_file_name %></span>
           <span class="timestamp">
           Posted <%= time_ago_in_words(transfer.created_at) %> ago.
           </span>

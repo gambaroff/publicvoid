@@ -11,7 +11,7 @@ FactoryGirl.define do
   end
 
   factory :transfer do
-    content "Lorem_ipsum.mov"
+    # TODO how to add file here?
     user
   end
 end

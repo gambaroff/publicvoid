@@ -8,8 +8,9 @@ namespace :db do
                          admin: true)
     users = User.all(limit: 6)
     50.times do
-      content = Faker::Lorem.sentence(5)
-      users.each { |user| user.transfers.create!(content: content) }
+      file = File.new(Rails.root + 'spec/support/ico.png')  
+      upload = ActionDispatch::Http::UploadedFile.new(:tempfile => file, :filename => File.basename(file))  
+      users.each { |user| user.transfers.create!(transfered_file: upload) }
     end
   end
 end

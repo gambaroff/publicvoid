@@ -22,13 +22,6 @@ describe Transfer do
     it { should_not be_valid }
   end
   
-  describe "with blank content" do
-    before { @transfer.content = " " }
-    it { should_not be_valid }
-  end
-
-  describe "with content that is too long" do
-    before { @transfer.content = "a" * 141 }
-    it { should_not be_valid }
-  end
+  #TODO R&D to extend tests to ensure the file is copied correctly. 
+  
 end
