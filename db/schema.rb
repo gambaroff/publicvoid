@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 20131206043842) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "transfered_file_file_name"
-    t.string   "transfered_file_content_type"
-    t.integer  "transfered_file_file_size"
-    t.datetime "transfered_file_updated_at"
+    t.string   "transferred_file_file_name"
+    t.string   "transferred_file_content_type"
+    t.integer  "transferred_file_file_size"
+    t.datetime "transferred_file_updated_at"
   end
 
   add_index "transfers", ["user_id", "created_at"], name: "index_transfers_on_user_id_and_created_at"

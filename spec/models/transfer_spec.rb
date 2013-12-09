@@ -6,7 +6,7 @@ describe Transfer do
   before {
     file = File.new(Rails.root + 'spec/support/ico.png')  
     upload = ActionDispatch::Http::UploadedFile.new(:tempfile => file, :filename => File.basename(file))  
-    @transfer = user.transfers.build(transfered_file: upload) 
+    @transfer = user.transfers.build(transferred_file: upload) 
   }
 
   subject { @transfer }
