@@ -12,10 +12,12 @@
   <tbody>
     <% @transfers.each do |transfer| %>
       <tr>
+      	<td><a href="/system/transfers/transfered_files/000/000/00<%=transfer.id%>/original/<%=transfer.transfered_file_file_name%>">Open</td>
       	<td><%= transfer.transfered_file_file_name %></td>
-        <td><%= link_to 'Show', transfer %></td>
+        <td><%= link_to 'Show and Download', transfers_path(transfer) %></td>
         <td><%= link_to 'Edit', edit_transfer_path(transfer) %></td>
-        <td><%= link_to 'Destroy', transfer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', transfer, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+        <td><%= link_to 'Download ', download_path(transfer) %></td> 
       </tr>
     <% end %>
   </tbody>

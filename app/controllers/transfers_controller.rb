@@ -8,6 +8,15 @@ class TransfersController < ApplicationController
     @transfers = Transfer.all
   end
   
+  def download
+    @transfers = Transfer.find(params[:transfer_id])
+
+    send_file @transfer.transfered_file.path,
+              :filename => @transfer.transfered_file_file_name,
+              :type => @transfer.transfered_file_file_type,
+              :disposition => 'attachment'
+  end
+  
   # GET /transfers/1
   # GET /transfers/1.json
   def show
@@ -56,6 +65,15 @@ class TransfersController < ApplicationController
       format.html { redirect_to transfers_url }
       format.json { head :no_content }
     end
+  end
+  
+  def download
+    @transfer = Transfer.find(transfer_params)
+
+    send_file @transfer.transfered_file_file_name.path,
+              :filename => @transfer.transfered_file_file_name,
+              :type => @transfer.transfered_file_file_type,
+              :disposition => 'attachment'
   end
   
   private

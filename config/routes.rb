@@ -1,5 +1,6 @@
 PublicVoid::Application.routes.draw do
   resources :transfers
+  match 'transfers/:id', to: 'transfers#download', via: 'get', :as => :download
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   root  'static_pages#home'
