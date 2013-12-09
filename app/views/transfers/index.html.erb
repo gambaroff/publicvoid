@@ -12,6 +12,7 @@
   <tbody>
     <% @transfers.each do |transfer| %>
       <tr>
+      	<td><%= transfer.transfered_file_file_name %></td>
         <td><%= link_to 'Show', transfer %></td>
         <td><%= link_to 'Edit', edit_transfer_path(transfer) %></td>
         <td><%= link_to 'Destroy', transfer, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -12,8 +12,7 @@
     <% if @user.transfers.any? %>
       <h3>Transfers (<%= @user.transfers.count %>)</h3>
       <ol class="transfers">
-        <%= render @transfers %>
-        <%= render 'transfers/show' %>
+        <%= link_to "Your Transfer", transfers_path %>
       </ol>
       <%= will_paginate @transfers %>
     <% end %>
