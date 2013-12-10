@@ -1,12 +1,25 @@
-<div class="center hero-unit">
-  <h1>Welcome to Public Void</h1>
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/transfer_form' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to Public Void</h1>
 
-  <h2>
-    This is the home page for Public Void:
-    Friendly app for video friends and foes.
-  </h2>
+    <h2>
+      This is the home page for Public Void:
+      Friendly app for video friends and foes.
+    </h2>
 
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+  </div>
 
-<%= link_to image_tag("public_void.jpg", alt: "Free_storage_space")%>
+  <%= link_to image_tag("public_void.jpg", alt: "Free_storage_space")%>
+<% end %>

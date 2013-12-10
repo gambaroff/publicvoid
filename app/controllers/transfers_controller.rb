@@ -11,7 +11,7 @@ class TransfersController < ApplicationController
   def download
     @transfers = Transfer.find(params[:transfer_id])
 
-    send_file @transfer.transferred_file.path,
+    send_file @transfer.transferred_file_file_name_path,
               :filename => @transfer.transferred_file_file_name,
               :type => @transfer.transferred_file_file_type,
               :disposition => 'attachment'

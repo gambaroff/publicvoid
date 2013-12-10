@@ -52,10 +52,19 @@ describe "User pages" do
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
+    let!(:t1) { FactoryGirl.create(:transfer, user: user) }
+    let!(:t2) { FactoryGirl.create(:transfer, user: user) }
+
     before { visit user_path(user) }
 
     it { should have_content(user.name) }
     it { should have_title(user.name) }
+
+    describe "transfers" do
+      it { should have_content(t1.transferred_file_file_name) }
+      it { should have_content(t2.transferred_file_file_name) }
+      it { should have_content(user.transfers.count) }
+    end
   end
   
 
