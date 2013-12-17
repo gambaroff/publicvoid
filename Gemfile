@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
-#ruby-gemset=railstutorial_rails_4_0
+#ruby-gemset=public_void_rails_4_0
 
 gem 'rails', '4.0.1'
 gem 'bootstrap-sass', '2.3.2.0'
@@ -38,6 +38,10 @@ group :production do
   gem 'rails_12factor', '0.0.2'
 end
 
-gem 'paperclip'
+gem 'aws-sdk' # S3 API
+gem 'paperclip' # file attachment syntax and callbacks
+gem 's3_direct_upload' # direct upload form helper and assets
 gem 'therubyracer'
 gem 'jquery-fileupload-rails'
+
+
