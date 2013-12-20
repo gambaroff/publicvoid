@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
 
   before do
-    @user = User.new(name: "Example User", email: "user@example.com",
+    @user = User.new(name: "Ainah Pets", email: "pets@pets.com",
                      password: "foobar", password_confirmation: "foobar")
   end
 
@@ -17,7 +17,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
-  it { should respond_to(:transfers) }
+  it { should respond_to(:asset_transfers) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -123,29 +123,5 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
-  end
-  
-  describe "transfer associations" do
-
-    before { @user.save }
-    let!(:older_transfer) do
-      FactoryGirl.create(:transfer, user: @user, created_at: 1.day.ago)
-    end
-    let!(:newer_transfer) do
-      FactoryGirl.create(:transfer, user: @user, created_at: 1.hour.ago)
-    end
-
-    it "should have the right transfers in the right order" do
-      expect(@user.transfers.to_a).to eq [newer_transfer, older_transfer]
-    end
-    
-    it "should destroy associated transfers" do
-      transfers = @user.transfers.to_a
-      @user.destroy
-      expect(transfers).not_to be_empty
-      transfers.each do |transfer|
-        expect(Transfer.where(id: transfer.id)).to be_empty
-      end
-    end
   end
 end

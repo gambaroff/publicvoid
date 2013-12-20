@@ -1,6 +1,6 @@
 defaults: &defaults
-  access_key_id: "devkey"
-  secret_access_key: "devsecret"
+  access_key_id: <%=ENV["AWS_ACCESS_KEY_ID"]%>
+  secret_access_key: <%=ENV["AWS_SECRET_ACCESS_KEY"]%>
 development:
   <<: *defaults
   bucket: "Composition-development"

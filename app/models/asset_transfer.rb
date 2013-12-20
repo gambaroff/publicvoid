@@ -5,8 +5,10 @@ class AssetTransfer < ActiveRecord::Base
   
   belongs_to :user
   has_attached_file :upload
- 
+  
+  validates :user_id, presence: true
   validates :direct_upload_url, presence: true, format: { with: DIRECT_UPLOAD_URL_FORMAT }
+  
     
   before_create :set_upload_attributes
   after_commit :queue_processing
@@ -68,5 +70,4 @@ class AssetTransfer < ActiveRecord::Base
   def queue_processing
     AssetTransfer.delay.transfer_and_cleanup(id)
   end
- 
 end
