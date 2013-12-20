@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @transfer = current_user.transfers.build if signed_in?
+    @asset_transfer = current_user.asset_transfers.build if signed_in?
   end
 
   def help
