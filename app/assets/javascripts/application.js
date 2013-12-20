@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
+//= require s3_direct_upload
 //= require_tree .

@@ -9,12 +9,12 @@
     </section>
   </aside>
   <div class="span8">
-    <% if @user.transfers.any? %>
-      <h3>Transfers (<%= @user.transfers.count %>)</h3>
+    <% if @user.asset_transfers.any? %>
+      <h3>Transfers (<%= @user.asset_transfers.count %>)</h3>
       <ol class="transfers">
-        <%= link_to "Your Transfer", transfers_path %> 
+        <%= link_to "Your Asset", asset_transfers_path %> 
       </ol>
-      <%= will_paginate @transfers %>
+      <%= will_paginate @asset_transfers %>
     <% end %>
   </div>
 </div>

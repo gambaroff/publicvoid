@@ -1,0 +1,1 @@
+json.extract! @asset_transfer, :created_at, :updated_at

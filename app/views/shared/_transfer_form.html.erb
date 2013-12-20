@@ -1,23 +1,22 @@
-<%= form_for(@transfer, html: { multipart: true }) do |f| %>
+<%= form_for(@asset_transfer, html: { multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <% if @transfer.errors.any? %>
+  <% if @asset_transfer.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@transfer.errors.count, "error") %> prohibited this upload from being saved:</h2>
+      <h2><%= pluralize(@asset_transfer.errors.count, "error") %> prohibited this upload from being saved:</h2>
 
       <ul>
-        <% @transfer.errors.full_messages.each do |msg| %>
+        <% @asset_transfer.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.label :transferred_file, t('.transfer_new_file') %>
-    <%= f.file_field :transferred_file, multiple: true, name: 'transfer[transferred_file]', placeholder: "Upload new file..."  %>
-    <%= f.submit "Post/Upload", class: "btn btn-large btn-primary" %>
-  </div>
+<div id="uploads_container"></div>
+<script id="template-upload" type="text/x-tmpl">
+<div id="upload_{%=o.unique_id%}" class="upload">
+  <h5>{%=o.name%}</h5>
+  <div class="progress progress-striped active"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>
 <% end %>
-
-<% # jquery upload template # %>
-<script id="template-upload" type="text/x-tmpl"><div class="upload">{%=o.name%}<div class="progress"><div class="bar" style="width: 0%"></div></div></div></script>
