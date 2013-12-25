@@ -13,6 +13,7 @@ group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
   gem 'capistrano', '3.0.1'
+  gem 'capistrano-bundler'
 end
 
 group :test do

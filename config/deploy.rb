@@ -1,3 +1,5 @@
+#require 'bundler/capistrano' # for bundler support
+
 set :application, 'publicvoid'
 set :repo_url, 'https://github.com/gambaroff/publicvoid.git'
 
@@ -7,20 +9,20 @@ set :repo_url, 'https://github.com/gambaroff/publicvoid.git'
   set :scm, :git
   set :branch, "master"
   set :user, "ubuntu"
+  set :use_sudo, false
   set :rails_env, "production"
   set :deploy_via, :remote_cache
   set :ssh_options, { :forward_agent => true }
+  set :keep_releases, 2
   
-
 # set :format, :pretty
 # set :log_level, :debug
   default_run_options[:pty] = true
-  server "www.publicvoid.gambaroff.com", :app, :web, :db, :primary => true
+  server "publicvoid.gambaroff.com", :app, :web 
+  role :db, :primary => true
 
 # set :linked_files, %w{config/database.yml}
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-
-set :keep_releases, 2
 
 namespace :deploy do
 
