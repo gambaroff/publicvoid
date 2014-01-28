@@ -74,7 +74,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $grayLight;
+  color: $gray-light;
 }
 
 p {
@@ -89,7 +89,19 @@ ol, ul, td {
 }
 
 /* header */
-
+.nav{
+  li a{
+    display: block;
+    text-decoration: none;
+    background: #414141;
+    &:visited{
+      color: white;
+    }
+    &:hover{
+      background: black; /*background of tabs for hover state */
+    }
+  }
+}
 #logo {
   float: left;
   margin-right: 10px;
@@ -106,17 +118,40 @@ ol, ul, td {
   }
 }
 
+/* landing */
+.jumbotron {
+  text-align: center;
+  background:  white;
+  .glyphicon{
+    font-size: 20em;
+    color: grey;
+  }
+  .btn{
+    margin-top: 2em;
+    font-size: 1.2em;
+  }
+  img {
+    position: relative;
+    margin-top: 2em;
+    width: 500px;
+    height: 500px;
+    border-radius: 250px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+  }
+}  
+
 /* footer */
 
 footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
-  color: $grayLight;
+  color: $gray-light;
   a {
     color: $gray;
     &:hover {
-      color: $grayDarker;
+      color: $gray-darker;
     }
   }
   small {
@@ -137,7 +172,7 @@ footer {
 aside {
   section {
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid $gray-lighter;
     &:first-child {
       border: 0;
       padding-top: 0;
@@ -202,12 +237,9 @@ input {
   display: block;
 }
 .timestamp {
-  color: $grayLight;
+  color: $gray-light;
 }
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
+
 aside {
   textarea {
     height: 100px;
@@ -223,9 +255,9 @@ aside {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-top: 1px solid $grayLighter;
+    border-top: 1px solid $gray-lighter;
     &:last-child {
-      border-bottom: 1px solid $grayLighter;
+      border-bottom: 1px solid $gray-lighter;
     }
   }
 }

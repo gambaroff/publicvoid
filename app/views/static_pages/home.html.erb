@@ -10,16 +10,16 @@
     </aside>
   </div>
 <% else %>
-  <div class="center hero-unit">
+  <div class="jumbotron">
+  	
     <h1>Welcome to Public Void</h1>
-
-    <h2>
-      This is the home page for Public Void:
-      Friendly app for video friends and foes.
-    </h2>
-
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+    <span class="glyphicon glyphicon-cloud-upload"></span>
+    <h2></h2>
+      
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-primary btn-lg" %>	
+    
+    <div class="visual>"
+      <%= link_to image_tag("public_void.jpg", alt: "Free_storage_space")%>
+    <div>
   </div>
-
-  <%= link_to image_tag("public_void.jpg", alt: "Free_storage_space")%>
 <% end %>
